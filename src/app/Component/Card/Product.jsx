@@ -1,57 +1,75 @@
+"use client";
 import React from "react";
-import { FiHeart, FiShoppingCart, FiEye } from "react-icons/fi";
+import Image from "next/image";
+import Link from "next/link";
+import { FiHeart, FiShoppingCart } from "react-icons/fi";
 
 export default function Product({ product }) {
-  const { name, price, oldPrice, image } = product;
+  const { name, price, oldPrice, image, slug } = product;
 
   return (
-    <div className="group relative w-full max-w-sm mx-auto rounded-2xl overflow-hidden bg-white shadow-md transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-      {/* Image Container */}
-      <div className="relative h-80 overflow-hidden">
-        <img
-          src={image}
-          alt={name}
-          className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
-        />
-
-        {/* Action Buttons */}
-        <div className="absolute top-4 -right-12 group-hover:right-4 transition-all duration-300 flex flex-col gap-3">
-          <button className="p-2.5 bg-white/80 backdrop-blur-md rounded-full shadow-md hover:bg-white transition-colors hover:scale-110">
-            <FiHeart className="text-gray-700" />
+    <article
+      className="group relative w-full  mx-auto rounded-xl overflow-hidden bg-white shadow-lg"
+      itemScope
+      itemType="https://schema.org/Product"
+    >
+      {/* Image */}
+      <Link href={`/products/${slug}`} aria-label={`View details for ${name}`}>
+        <div className="relative w-full h-64 overflow-hidden">
+          <Image
+            src={image}
+            alt={name}
+            fill
+            sizes="(max-width: 768px) 100vw, 400px"
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
+            priority={false}
+          />
+          {/* Wishlist Button */}
+          <button
+            className="absolute top-3 right-3 p-2  backdrop-blur-xs bg-white/30 hover:scale-110 duration-150 cursor-pointer rounded-full shadow-md"
+            aria-label="Add to wishlist"
+          >
+            <FiHeart className="text-orange-700" />
           </button>
-          <button className="p-2.5 bg-white/80 backdrop-blur-md rounded-full shadow-md hover:bg-white transition-colors hover:scale-110">
-            <FiEye className="text-gray-700" />
+        </div>
+      </Link>
+
+      {/* Content */}
+      <div className="p-4 flex flex-col gap-2">
+        <h3
+          className="text-lg font-semibold text-gray-900 truncate"
+          itemProp="name"
+        >
+          {name}
+        </h3>
+
+        {/* Price */}
+        <div className="flex items-center gap-2">
+          <span className="text-xl font-bold text-gray-900" itemProp="price">
+            ₹{price}
+          </span>
+          {oldPrice && (
+            <span className="text-sm line-through text-gray-400">
+              ₹{oldPrice}
+            </span>
+          )}
+        </div>
+
+        <div className="flex justify-between mt-2">
+          <button
+            className="flex-1 py-2 mr-2 bg-gray-900 hover:bg-gray-50 hover:text-gray-900  cursor-pointer border-2 border-gray-900 font-semibold duration-200 text-white rounded-xl shadow-md"
+            aria-label={`Buy ${name} now`}
+          >
+            Buy Now
+          </button>
+          <button
+            className="flex items-center justify-center w-12 h-12 bg-gray-900 hover:bg-gray-50 hover:text-gray-900  cursor-pointer border-2 border-gray-900 font-semibold duration-200 text-white rounded-xl shadow-md"
+            aria-label={`Add ${name} to cart`}
+          >
+            <FiShoppingCart size={20} />
           </button>
         </div>
       </div>
-
-      {/* Gradient Content Overlay */}
-      <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-        <div className="h-24 relative">
-          {/* Default Info */}
-          <div className="text-white transition-all duration-500 opacity-100 group-hover:opacity-0 group-hover:-translate-y-4">
-            <h3 className="text-lg font-semibold truncate">{name}</h3>
-            <p className="text-sm text-gray-300">Available now</p>
-          </div>
-
-          {/* Hover Info */}
-          <div className="absolute bottom-0 left-0 right-0 transition-all duration-500 opacity-0 group-hover:opacity-100 translate-y-6 group-hover:translate-y-0">
-            <div className="flex justify-between items-center">
-              <div className="text-white">
-                <span className="text-2xl font-bold">₹{price}</span>
-                {oldPrice && (
-                  <span className="ml-2 text-base line-through text-gray-400">
-                    ₹{oldPrice}
-                  </span>
-                )}
-              </div>
-              <button className="p-3 bg-white/90 backdrop-blur-md rounded-full text-gray-800 hover:bg-white shadow-lg transition-transform transform hover:scale-110">
-                <FiShoppingCart size={20} />
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    </article>
   );
 }

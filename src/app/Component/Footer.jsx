@@ -1,96 +1,108 @@
-import React from "react";
 import Link from "next/link";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-white  shadow-sm mt-10">
+    <footer className="bg-white shadow-sm" role="contentinfo">
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Brand Info */}
           <div>
-            <h2 className="text-2xl font-bold text-gray-800 ">
-              AK
-            </h2>
-            <p className="mt-2 text-sm text-gray-600 ">
+            <h2 className="text-2xl font-bold text-gray-800">AK</h2>
+            <p className="mt-2 text-sm text-gray-600">
               Your one-stop solution for premium products.  
               Delivering quality and trust since 2023.
             </p>
           </div>
 
-          {/* Company Links */}
-          <div>
-            <h3 className="text-sm font-semibold text-gray-900 uppercase ">
+          <nav aria-label="Company">
+            <h3 className="text-sm font-semibold text-gray-900 uppercase">
               Company
             </h3>
             <ul className="mt-4 space-y-2">
               <li>
-                <Link href="/about" className="text-gray-600 hover:text-gray-900 ">
+                <Link href="/about" className="text-gray-600 hover:text-gray-900">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/careers" className="text-gray-600 hover:text-gray-900 ">
+                <Link href="/careers" className="text-gray-600 hover:text-gray-900">
                   Careers
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-600 hover:text-gray-900 ">
+                <Link href="/contact" className="text-gray-600 hover:text-gray-900">
                   Contact
                 </Link>
               </li>
             </ul>
-          </div>
+          </nav>
 
-          {/* Legal Links */}
-          <div>
-            <h3 className="text-sm font-semibold text-gray-900 uppercase ">
+          <nav aria-label="Legal">
+            <h3 className="text-sm font-semibold text-gray-900 uppercase">
               Legal
             </h3>
             <ul className="mt-4 space-y-2">
               <li>
-                <Link href="/privacy-policy" className="text-gray-600 hover:text-gray-900 ">
+                <Link href="/privacy-policy" className="text-gray-600 hover:text-gray-900">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="text-gray-600 hover:text-gray-900 ">
+                <Link href="/terms" className="text-gray-600 hover:text-gray-900">
                   Terms & Conditions
                 </Link>
               </li>
               <li>
-                <Link href="/refund-policy" className="text-gray-600 hover:text-gray-900 ">
+                <Link href="/refund-policy" className="text-gray-600 hover:text-gray-900">
                   Refund Policy
                 </Link>
               </li>
             </ul>
-          </div>
+          </nav>
 
-          {/* Social Links */}
-          <div>
-            <h3 className="text-sm font-semibold text-gray-900 uppercase ">
+          <nav aria-label="Social Media">
+            <h3 className="text-sm font-semibold text-gray-900 uppercase">
               Follow Us
             </h3>
             <div className="flex space-x-4 mt-4">
-              <Link href="https://facebook.com" target="_blank">
-                <FaFacebook className="w-6 h-6 text-gray-600 hover:text-blue-600 " />
+              <Link
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
+                <FaFacebook className="w-6 h-6 text-gray-600 hover:text-blue-600" />
               </Link>
-              <Link href="https://twitter.com" target="_blank">
-                <FaTwitter className="w-6 h-6 text-gray-600 hover:text-blue-400 " />
+              <Link
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Twitter"
+              >
+                <FaTwitter className="w-6 h-6 text-gray-600 hover:text-blue-400" />
               </Link>
-              <Link href="https://instagram.com" target="_blank">
-                <FaInstagram className="w-6 h-6 text-gray-600 hover:text-pink-500 " />
+              <Link
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                <FaInstagram className="w-6 h-6 text-gray-600 hover:text-pink-500" />
               </Link>
-              <Link href="https://linkedin.com" target="_blank">
-                <FaLinkedin className="w-6 h-6 text-gray-600 hover:text-blue-700 " />
+              <Link
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <FaLinkedin className="w-6 h-6 text-gray-600 hover:text-blue-700" />
               </Link>
             </div>
-          </div>
+          </nav>
         </div>
 
-        {/* Bottom Footer */}
-        <div className="border-t border-gray-200  mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between">
-          <span className="text-sm text-gray-500 ">
+        <div className="border-t border-gray-200 mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between">
+          <span className="text-sm text-gray-500">
             © {new Date().getFullYear()} AK™. All Rights Reserved.
           </span>
           <span className="text-sm text-gray-500">
