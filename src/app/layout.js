@@ -22,14 +22,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header/>
+        <Header />
         <div className="h-16"></div>
         {children}
-        <Footer/>
-        <Analytics/>
+        <Footer />
+        <Analytics />
       </body>
     </html>
   );
