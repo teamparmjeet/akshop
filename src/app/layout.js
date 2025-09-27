@@ -3,7 +3,7 @@ import "./globals.css";
 import Header from "./Component/Header";
 import Footer from "./Component/Footer";
 import { Analytics } from "@vercel/analytics/next"
-
+import Script from "next/script";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -22,9 +22,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-      </head>
+
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -33,6 +31,11 @@ export default function RootLayout({ children }) {
         {children}
         <Footer />
         <Analytics />
+
+        <Script
+          src="https://checkout.razorpay.com/v1/checkout.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
