@@ -20,13 +20,16 @@ export default function Header() {
             <Link href="/" className="text-gray-700 hover:text-blue-600">
               Home
             </Link>
-            <Link href="/products" className="text-gray-700 hover:text-blue-600">
+            {/* <Link href="/products" className="text-gray-700 hover:text-blue-600">
               Products
+            </Link> */}
+            <Link href="/Cart" className="text-gray-700 hover:text-blue-600">
+              Carts
             </Link>
-            <Link href="/about" className="text-gray-700 hover:text-blue-600">
+            <Link href="../Aboutus" className="text-gray-700 hover:text-blue-600">
               About
             </Link>
-            <Link href="/contact" className="text-gray-700 hover:text-blue-600">
+            <Link href="../Contactus" className="text-gray-700 hover:text-blue-600">
               Contact
             </Link>
           </nav>
@@ -44,18 +47,16 @@ export default function Header() {
 
       {/* Mobile Overlay */}
       <div
-        className={`fixed inset-0 backdrop-blur-sm bg-white/30 z-40 transition-opacity duration-300 ${
-          isOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
+        className={`fixed inset-0 backdrop-blur-sm bg-white/30 z-40 transition-opacity duration-300 ${isOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
         onClick={() => setIsOpen(false)}
         aria-hidden={!isOpen}
       />
 
       {/* Mobile Sidebar */}
       <aside
-        className={`fixed top-0 left-0 w-64 h-full bg-white shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className={`fixed top-0 left-0 w-64 h-full bg-white shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
         aria-label="Mobile menu"
       >
         <div className="flex justify-between items-center p-4 border-b border-gray-200">
@@ -73,13 +74,16 @@ export default function Header() {
           <Link href="/" className="block text-gray-700 hover:text-blue-600" onClick={() => setIsOpen(false)}>
             Home
           </Link>
-          <Link href="/products" className="block text-gray-700 hover:text-blue-600" onClick={() => setIsOpen(false)}>
+          {/* <Link href="/products" className="block text-gray-700 hover:text-blue-600" onClick={() => setIsOpen(false)}>
             Products
+          </Link> */}
+          <Link href="../Cart" className="block text-gray-700 hover:text-blue-600" onClick={() => setIsOpen(false)}>
+            Carts
           </Link>
-          <Link href="/about" className="block text-gray-700 hover:text-blue-600" onClick={() => setIsOpen(false)}>
+          <Link href="../Aboutus" className="block text-gray-700 hover:text-blue-600" onClick={() => setIsOpen(false)}>
             About
           </Link>
-          <Link href="/contact" className="block text-gray-700 hover:text-blue-600" onClick={() => setIsOpen(false)}>
+          <Link href="../Contactus" className="block text-gray-700 hover:text-blue-600" onClick={() => setIsOpen(false)}>
             Contact
           </Link>
         </nav>

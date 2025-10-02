@@ -2,13 +2,12 @@ import React from "react";
 import Product from "./Component/Card/Product";
 import shirt from "../../constant/shirt";
 import shoes from "../../constant/shoes";
-
+import Banner1 from "./Component/Banner/Banner1";
 export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-white via-stone-50 to-stone-200 font-sans">
-     
-      {/* Shirts Section */}
-      <section className="container mx-auto px-4 py-12">
+     <Banner1/>
+      <section className="container mx-auto px-4 py-8">
         <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-10 text-center">
           Premium Shirts Collection
         </h2>
@@ -20,7 +19,7 @@ export default function Home() {
       </section>
 
       {/* Shoes Section */}
-      <section className="container mx-auto px-4 py-12">
+      <section className="container mx-auto px-4 py-8">
         <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-10 text-center">
           Exclusive Shoes Collection
         </h2>
